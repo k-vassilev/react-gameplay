@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from "./components/Header";
 import WelcomeWorld from "./components/WelcomeWorld";
@@ -23,6 +23,10 @@ function App() {
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Register} />
 					<Route path="/games/:gameId" component={GameDetails} />
+					<Route path="/logout" render={(prop) => {
+						console.log('Succesfully logged Out!');
+						return <Redirect to="/"/>
+					}} />
 				</Switch>
 			</main>
 		</div>
